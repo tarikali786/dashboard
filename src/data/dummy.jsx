@@ -3040,11 +3040,6 @@ export const stackedChartData = [
     { x: "May", y: 169.9 },
     { x: "Jun", y: 179.9 },
     { x: "July", y: 189.9 },
-    // { x: "Aug", y: 111.1 },
-    // { x: "Sep", y: 127.3 },
-    // { x: "Auc", y: 143.4 },
-    // { x: "Nov", y: 159.9 },
-    // { x: "dec", y: 159.9 },
   ],
   [
     { x: "Jan", y: 111.1 },
@@ -3054,11 +3049,7 @@ export const stackedChartData = [
     { x: "May", y: 169.9 },
     { x: "Jun", y: 179.9 },
     { x: "July", y: 189.9 },
-    //   { x: "Aug", y: 111.1 },
-    // { x: "Sep", y: 127.3 },
-    // { x: "Auc", y: 143.4 },
-    // { x: "Nov", y: 159.9 },
-    // { x: "dec", y: 159.9 },
+ 
   ],
 ];
 
