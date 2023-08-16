@@ -1,6 +1,8 @@
-
-export const Header = () => {
-  return (
-    <div>Header</div>
-  )
-}
+export const Header = ({ category, title }) => (
+  <div className=" mb-10 sm:mt-10 sm:pt-4">
+    <p className="text-lg text-gray-400">{category}</p>
+    <p className="text-3xl font-extrabold tracking-tight text-slate-900">
+      {title}
+    </p>
+  </div>
+);

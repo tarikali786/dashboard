@@ -1,47 +1,64 @@
 import React from "react";
 import {
-  ChartComponent,
-  SeriesCollectionDirective,
-  SeriesDirective,
-  Inject,
-  Legend,
-  Category,
-  StackingColumnSeries,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
   Tooltip,
-} from "@syncfusion/ej2-react-charts";
+  Legend,
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import faker from "faker";
 
-import {
-  stackedCustomSeries,
-  stackedPrimaryXAxis,
-  stackedPrimaryYAxis,
-} from "../../data/dummy";
-import { useStateContext } from "../../contexts/ContextProvider";
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
-export const Stacked = ({ width, height }) => {
-  // const { currentMode } = useStateContext();
-
-  return (
-    // ""
-    <ChartComponent
-      id="charts"
-      primaryXAxis={stackedPrimaryXAxis}
-      primaryYAxis={stackedPrimaryYAxis}
-      width={width}
-      height={height}
-      chartArea={{ border: { width: 0 } }}
-      tooltip={{ enable: true }}
-      // background={currentMode === 'Dark' ? '#33373E' : '#fff'}
-      legendSettings={{ background: "white" }}
-    >
-      <Inject services={[StackingColumnSeries, Category, Legend, Tooltip]} />
-      <SeriesCollectionDirective>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        {stackedCustomSeries.map((item, index) => (
-          <SeriesDirective key={index} {...item} />
-        ))}
-      </SeriesCollectionDirective>
-    </ChartComponent>
-  );
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom",
+    },
+    title: {
+      display: false,
+      text: "Chart.js Bar Chart",
+    },
+  },
+  scales: {
+    x: {
+      stacked: true, // Stack the bars on the x-axis
+    },
+    y: {
+      stacked: true, // Stack the bars on the y-axis
+    },
+  },
 };
 
-export default Stacked;
+const labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: "Expense",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+      label: "Budget",
+      data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+    },
+  ],
+};
+
+export const Stacked = () => {
+  return <Bar options={options} data={data} height={450} />;
+};

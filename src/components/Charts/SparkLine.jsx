@@ -1,44 +1,62 @@
 import React from "react";
 import {
-  SparklineComponent,
-  Inject,
-  SparklineTooltip,
-} from "@syncfusion/ej2-react-charts";
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
 
-export const SparkLine = ({
-  id,
-  height,
-  width,
-  color,
-  data,
-  type,
-  currentColor,
-}) => {
-  return (
-    <SparklineComponent
-      id={id}
-      height={height}
-      width={width}
-      lineWidth={1}
-      valueType="Numeric"
-      fill={color}
-      border={{ color: currentColor, width: 2 }}
-      tooltipSettings={{
-        visible: true,
-        format: "${x} : data ${yval}",
-        trackLineSettings: {
-          visible: true,
-        },
-      }}
-      markerSettings={{ visible: ["All"], size: 2.5, fill: currentColor }}
-      dataSource={data}
-      xName="x"
-      yName="yval"
-      type={type}
-    >
-      <Inject services={[SparklineTooltip]} />
-    </SparklineComponent>
-  );
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      position: "bottom",
+    },
+    title: {
+      display: false,
+      text: "Chart.js Line Chart",
+    },
+  },
 };
 
-// SparkLine;
+const labels = ["January", "February", "March", "April", "May", "June", "July"];
+
+export const SparkLine = ({ id, width, height, currentColor, color }) => {
+  const customData1 = [50, 300, 600, 800, 400, 900, 700];
+  const datas = {
+    labels,
+    datasets: [
+      {
+        label: "2023",
+        data: customData1,
+        borderColor: currentColor,
+        backgroundColor: color,
+        fill: true,
+      },
+    ],
+  };
+  return (
+    <Line
+      datasetIdKey={id}
+      options={options}
+      data={datas}
+      width={width}
+      height={height}
+    />
+  );
+};
