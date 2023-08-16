@@ -96,11 +96,10 @@ export const Ecommerce = () => {
               <div className="mt-5">
                 <SparkLine
                   currentColor="blue"
-                  id="line-sparkline"
+                  id="line"
                   type="Line"
-                  height="80px"
-                  width="250px"
-                  data={SparklineAreaData}
+                  height="260"
+                  width="270"
                   color="blue"
                 />
               </div>
@@ -113,8 +112,8 @@ export const Ecommerce = () => {
                 />
               </div>
             </div>
-            <div>
-              <Stacked width="320px" height="360px" />
+            <div >
+              <Stacked />
             </div>
           </div>
         </div>
