@@ -1,0 +1,23 @@
+/* styles.css */
+
+.pencil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pencil-body {
+    border-radius: 0.25rem;
+  }
+  
+  .pencil-eraser {
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+  
+  .pencil-tip {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    margin-top: -0.5rem;
+  }
+  
