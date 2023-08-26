@@ -8,9 +8,12 @@ registerLicense(
   "Ngo9BigBOggjHTQxAR8/V1NGaF1cWGhBYVF0WmFZfV1gcV9FZlZUQGYuP1ZhSXxQdk1iXH9bc3JQQmNVUkU="
 );
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ContextProvider>
-      <App />
-    </ContextProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  //   <ContextProvider>
+  //     <App />
+  //   </ContextProvider>
+  // </React.StrictMode>
+  <ContextProvider>
+    <App />
+  </ContextProvider>
 );

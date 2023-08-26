@@ -13,25 +13,32 @@ import {
   Line,
   Area,
   Bar,
-  Pie,
+  PieChat,
   Financial,
   ColorPicker,
   ColorMapping,
-  Editor,
+  Editors,
 } from "./pages";
+import { Orderss } from "./pages/orderss";
 import { useStateContext } from "./contexts/contextProvider";
 import "./App.css";
 export const App = () => {
-  const { activeMenu, setActiveMenu } = useStateContext();
+  const {
+    activeMenu,
+    currentColor,
+    currentMode,
+    themeSettings,
+    setThemeSettings,
+  } = useStateContext();
   return (
-    <div>
+    <div className={currentMode === "Dark" ? "dark" : ""}>
       <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
             <button
               type="button"
-              // onClick={() => setThemeSettings(true)}
-              style={{ background: "blue", borderRadius: "50%" }}
+              onClick={() => setThemeSettings(true)}
+              style={{ background: currentColor, borderRadius: "50%" }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
             >
               <FiSettings />
@@ -53,39 +60,45 @@ export const App = () => {
                 : "bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 "
             }
           >
-            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+            <div
+              className="fixed md:static
+            
+            
+            bg-main-bg dark:bg-main-dark-bg navbar w-full "
+            >
               <Navbar />
             </div>
-            {/* <div> */}
-            <Routes>
-              {/* dashboard */}
-              <Route path="/" element={<Ecommerce />} />
-              <Route path="/ecommerce" element={<Ecommerce />} />
+            <div>
+              {themeSettings && <ThemeSettings />}
+              <Routes>
+                {/* dashboard */}
+                <Route path="/" element={<Ecommerce />} />
+                <Route path="/ecommerce" element={<Ecommerce />} />
 
-              {/* page */}
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/employees" element={<Employees />} />
-              <Route path="/customers" element={<Customers />} />
+                {/* page */}
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/customers" element={<Customers />} />
 
-              {/* Apps */}
-              <Route path="/kanban" element={<Kanban />} />
-              <Route path="/editor" element={<Editor />} />
-              <Route path="/calender" element={<Calender />} />
-              <Route path="/color-picker" element={<ColorPicker />} />
+                {/* Apps */}
+                <Route path="/kanban" element={<Kanban />} />
+                <Route path="/editor" element={<Editors />} />
+                <Route path="/calendar" element={<Calender />} />
+                <Route path="/color-picker" element={<ColorPicker />} />
 
-              {/* Charts */}
-              <Route path="/line" element={<Line />} />
-              <Route path="/area" element={<Area />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/financial" element={<Financial />} />
-              <Route path="/color-mapping" element={<ColorMapping />} />
-              <Route path="/pyramid" element={<Pyramid />} />
-              <Route path="/stacked" element={<Stacked />} />
-              <Route path="/*" element="error page" />
-            </Routes>
+                {/* Charts */}
+                <Route path="/line" element={<Line />} />
+                <Route path="/area" element={<Area />} />
+                <Route path="/bar" element={<Bar />} />
+                <Route path="/pie" element={<PieChat />} />
+                <Route path="/financial" element={<Financial />} />
+                <Route path="/color-mapping" element={<ColorMapping />} />
+                <Route path="/pyramid" element={<Pyramid />} />
+                <Route path="/stacked" element={<Stacked />} />
+                <Route path="/*" element="error page" />
+              </Routes>
+            </div>
           </div>
-          <div></div>
         </div>
       </BrowserRouter>
     </div>

@@ -15,8 +15,10 @@ import {
   ecomPieChartData,
 } from "../data/dummy";
 import product9 from "../data/product9.jpg";
+import { useStateContext } from "../contexts/contextProvider";
 
 export const Ecommerce = () => {
+  const { currentColor } = useStateContext();
   return (
     <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center">
@@ -30,7 +32,7 @@ export const Ecommerce = () => {
           <div className="mt-6">
             <Button
               color="white"
-              bgColor="blue"
+              bgColor={currentColor}
               text="Download"
               borderRadius="10px"
               size="md"
@@ -95,24 +97,24 @@ export const Ecommerce = () => {
               </div>
               <div className="mt-5">
                 <SparkLine
-                  currentColor="blue"
+                  currentColor={currentColor}
                   id="line"
                   type="Line"
                   height="260"
                   width="270"
-                  color="blue"
+                  color={currentColor}
                 />
               </div>
               <div className="mt-10">
                 <Button
                   color="white"
-                  bgColor="blue"
+                  bgColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
                 />
               </div>
             </div>
-            <div >
+            <div>
               <Stacked />
             </div>
           </div>

@@ -17,6 +17,7 @@ export const Navbar = () => {
     handleClick,
     screenSize,
     setscreenSize,
+    currentColor,
   } = useStateContext();
   useEffect(() => {
     const handleResize = () => setscreenSize(window.innerWidth);
@@ -53,7 +54,7 @@ export const Navbar = () => {
         <NavButton
           title="menu"
           customFunc={() => setActiveMenu(!activeMenu)}
-          color="blue"
+          color={currentColor}
           icon={<AiOutlineMenu />}
         />
 
@@ -62,19 +63,19 @@ export const Navbar = () => {
             title="Cart"
             dotColor="#03C9D7"
             customFunc={() => handleClick("cart")}
-            color="blue"
+            color={currentColor}
             icon={<FiShoppingCart />}
           />
           <NavButton
             title="Chat"
             customFunc={() => handleClick("chat")}
-            color="blue"
+            color={currentColor}
             icon={<BsChatLeft />}
           />
           <NavButton
             title="Notification"
             customFunc={() => handleClick("notification")}
-            color="blue"
+            color={currentColor}
             icon={<RiNotification3Line />}
           />
           <div

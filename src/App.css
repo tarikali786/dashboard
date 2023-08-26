@@ -12,7 +12,9 @@
     z-index: 10000000;
   }
 }
-
+h6{
+  background-color: rgba(0, 65, 96, 0.949);
+}
 .e-dlg-center-center,
 .e-quick-popup-wrapper.e-device {
   z-index: 1000000 !important;

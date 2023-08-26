@@ -7,3 +7,5 @@ export * from "./Editor";
 export * from "./Employees";
 export * from "./Kanban";
 export * from "./Orders";
+export * from "./TableComponent";
+export * from "./CalenderElement";
